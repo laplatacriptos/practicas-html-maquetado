@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+:root{}
+
+*{padding: 0;margin: 0;box-sizing: border-box;}
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+/*.lato-thin {
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.lato-light {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.lato-regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lato-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.lato-black {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.lato-thin-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.lato-light-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.lato-regular-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.lato-bold-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.lato-black-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+*/
+
+
+/*BODY*/
+body {display: grid;grid-template-columns: 220px 1fr; /* Columna 1 fija de 220px, Columna 2 ocupa el resto */grid-template-areas: "header header" "aside main";/*Distribuimos las áreas */gap: 20px;}
+/* Para celulares: hacemos que vuelvan a una sola columna vertical */
+@media (max-width: 768px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "header"
+      "aside"
+      "main";
+      gap: 0;
+  }
+}
+
+/*HEADER*/
+
+
+.Header{display: flex;justify-content: center;background-color: hotpink;align-items: center;height: 70px;padding: 8px;flex-wrap: wrap;grid-area: header;
+  /* ... tus estilos de header ... */}
+figure{width: 50px;height: 50px;}
+.Header img{width: 100%;height: 100%;object-fit: cover;border-radius: 50%;}
+.navbar-menu{display: flex; gap: 20px;}
+.navbar-menu li{display: flex;align-items: center;padding: 8px 12px; gap: 5px;}
+.navbar-menu li a{text-decoration: none; color: rgb(177, 31, 21);font: 2rem;font-style: bold;}
+.Header button{font-size: 1rem;color: rgb(177, 31, 21);padding: 8px 12px; border-radius: 5px;font-weight: bold;background-color: rgba(165, 161, 161, 0.096);border-color: rgb(177, 31, 21);}
+
+/*íconos */
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  src: url('./font/fontmaterial-symbols-outlined.woff2') format('woff2');
+}
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-size: 26px; /* O el tamaño que tú quieras */
+}
+
+/*Seccion de propuestas*/
+.propuestas{display: flex;padding: 6px;justify-content: center;gap: 12px;flex-wrap: wrap;}
+.propuestas section{width: 400px;height: 200px;border: solid 1px grey;border-radius: 8px;text-align: center;padding: 12px;display: flex; align-items: center;justify-content: center;flex-direction: column;}
+.propuestas section h2{margin-bottom: 8px;}
+.propuestas section p {font-family: "Lato", sans-serif; font-weight: 400; font-style: normal;}
+
+/*Media*/
+@media (max-width: 768px) {
+  .Header {height: auto; /* Permite que el header crezca según lo que necesite su contenido */
+    flex-direction: column; /* Apila el logo, el menú y los botones de arriba hacia abajo */gap: 12px;padding: 16px;margin-bottom: 0;}
+  .navbar-menu {flex-direction: column; /* Apila los ítems del menú en vertical */
+    align-items: center;gap: 12px;}
+    .propuestas{padding: 6px;}
+}
+
+/*ASIDE*/
+
+.Aside{grid-area: aside;border-right: solid 1px #ddd;gap: 12px;}
+.Aside .navbar{}
+.Aside .navbar .navbar-menu{display: flex;flex-direction: column;}
+.Aside .navbar .navbar-menu li:hover{background-color: rgba(143, 173, 173, 0.13);}
+
+/*MAIN*/
+.Main{grid-area: main;display: flex;padding: 12px;justify-content: center;gap: 12px;flex-wrap: wrap;flex-direction: column;}
+.Main img{max-width: 100%;height: auto;display: block;margin: 20px auto;}
+@media (max-width: 768px) {
+.Main{gap: 0;padding: 0;margin: 0;}
+}
+/*FOOTER*/
